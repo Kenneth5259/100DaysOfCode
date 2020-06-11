@@ -1,1 +1,2 @@
-The goal of Day 1 will be to add ReactStrap components into a series of custom components. More specifics will be worked out as tomorrow goes on.
+The goal of Day 1 will be to add ReactStrap components into a series of custom components. These components will be the building block of the user interface for an IoT appliaction
+that can be used every year.
