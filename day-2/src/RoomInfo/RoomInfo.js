@@ -15,6 +15,8 @@ class RoomInfo extends React.Component {
         this.state = {
             buttonName: 'On',
             buttonVariant: 'success',
+            minTemp: 50.0,
+            maxTemp: 100.0,
             currentTemp: 72.0,
             preferredTemp: 68.0,
             tempUnit: 'F',
@@ -32,6 +34,7 @@ class RoomInfo extends React.Component {
         this.buttonClickHandler = this.buttonClickHandler.bind(this);
         this.temperatureConversionHandler = this.temperatureConversionHandler.bind(this);
         this.valueText = this.valueText.bind(this);
+        this.sliderChangeHandler = this.sliderChangeHandler.bind(this);
     }
     buttonClickHandler = (event) => {
         let newName = this.state.buttonName === 'On' ? 'Off':'On'
@@ -41,24 +44,37 @@ class RoomInfo extends React.Component {
             buttonVariant: newVariant
         })
     }
+    sliderChangeHandler = (event, newValue) => {
+        this.setState({
+            preferredTemp: newValue
+        });
+    }
     temperatureConversionHandler = (event) => {
         let unit;
         let curTemp = 0;
         let prefTemp = 0;
+        let tempMin = 0;
+        let tempMax = 0;
         if(this.state.tempUnit === 'F') {
             unit = 'C';
             curTemp = (this.state.currentTemp - 32) * 5 / 9;
             prefTemp = (this.state.preferredTemp - 32) * 5 / 9;
+            tempMin = (this.state.minTemp - 32) * 5 / 9;
+            tempMax = (this.state.maxTemp - 32) * 5 / 9;
         } else {
             unit = 'F';
             curTemp = this.state.currentTemp * 9 / 5 + 32;
             prefTemp = this.state.preferredTemp * 9 / 5 + 32;
+            tempMin = (this.state.minTemp * 9) / 5 + 32;
+            tempMax = (this.state.maxTemp * 9) / 5 + 32;
         }
         this.setState({
             tempUnit: unit,
             preferredTemp: prefTemp.toFixed(1),
-            currentTemp: curTemp.toFixed(1)
-        });
+            currentTemp: curTemp.toFixed(1),
+            minTemp: parseFloat(tempMin.toFixed(1)),
+            maxTemp: parseFloat(tempMax.toFixed(1))
+        }); 
     }
     valueText= (value) => {
         return `${value}°${this.state.tempUnit}`;
@@ -92,7 +108,7 @@ class RoomInfo extends React.Component {
                     </div> 
                 </Card.Body>
 
-                <Slider aria-label='Temperature' valueLabelDisplay='auto' value={[0,100]} getAriaLabel={this.valueText}/>
+                <Slider aria-label='Temperature' min={this.state.minTemp} max={this.state.maxTemp}  valueLabelDisplay='auto' onChange={this.sliderChangeHandler}/>
 
                 <Button className="room__button" variant={this.state.buttonVariant} onClick={this.buttonClickHandler}>{this.state.buttonName}</Button>
             </Card></div>
