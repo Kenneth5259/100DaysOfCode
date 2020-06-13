@@ -10,7 +10,8 @@
   "author": "Kenneth Carroll",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "macaddress": "^0.5.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"

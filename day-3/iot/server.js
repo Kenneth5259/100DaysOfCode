@@ -13,7 +13,13 @@ io.on('connection', (socket) => {
   socket.on('disconnect', () => {
     console.log('a user disconnected');
   })
+  socket.on('user', (data) => {
+    users.push(data.address);
+    console.log(users);
+  })
 });
+
+
 
 
 
