@@ -12,12 +12,13 @@ import './RoomInfo.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const StyledSlider = withStyles({
+let StyledSlider = withStyles({
     root: {
         display: 'inline-block',
         width: '70%', 
         margin: 'auto',
-        padding: '0'
+        padding: '0',
+
     }
 })(Slider);
 
@@ -94,9 +95,9 @@ class RoomInfo extends React.Component {
     render() {
         return (
             <div className="room__shadow">
-            <Card bg="dark" text='white' className="room">
+            <Card bg="dark" text='white' className="room" style={{minWidth: '18.25rem'}}>
                 <Card.Header className="room__title border-bottom border-white" >{this.props.title}</Card.Header>
-                <Card.Body className="room__temp">
+                <Card.Body style={{padding: '0', margin: '0.5rem 0rem'}} className="room__temp">
                     <div className="room__temp__title">
                         Current Temp:
                     </div> 
@@ -104,11 +105,11 @@ class RoomInfo extends React.Component {
                         {this.state.tempUnit}
                     </div>
                     <div className="room__temp__value">
-                        {this.state.currentTemp}
+                        {`${this.state.currentTemp}°`}
                     </div> 
                     
                 </Card.Body>
-                <Card.Body className="room__temp">
+                <Card.Body style={{padding: '0'}} className="room__temp">
                     <div className="room__temp__title">
                         Preferred Temp:
                     </div> 
@@ -116,11 +117,11 @@ class RoomInfo extends React.Component {
                         {this.state.tempUnit}
                     </div> 
                     <div className="room__temp__value">
-                        {this.state.preferredTemp}
+                        {`${this.state.preferredTemp}°`}
                     </div> 
                 </Card.Body>
-                <span> 
-                    <p className='temperature__text'>{this.state.minTemp}</p>
+                <span className='slider__container'> 
+                    <p className='temperature__text temp__min'>{this.state.minTemp}</p>
                     <StyledSlider 
                         aria-label='Temperature' 
                         min={this.state.minTemp} 
@@ -129,9 +130,10 @@ class RoomInfo extends React.Component {
                         onChange={this.sliderChangeHandler}
                         getAriaValueText={this.valueText}
                         valueLabelFormat={this.valueText}
-                        value={this.state.preferredTemp}
+                        value={parseFloat(this.state.preferredTemp)}
+                        color={this.state.preferredTemp <= this.state.currentTemp ? 'primary':'secondary'}
                     />
-                    <p className='temperature__text'>{this.state.maxTemp}</p>
+                    <p className='temperature__text temp__max'>{this.state.maxTemp}</p>
                 </span>
                 <Button className="room__button" variant={this.state.buttonVariant} onClick={this.buttonClickHandler}>{this.state.buttonName}</Button>
             </Card></div>
