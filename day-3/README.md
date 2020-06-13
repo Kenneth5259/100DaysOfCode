@@ -1,0 +1,1 @@
+This is Day 2, where I worked on a form that I did not end up using, and will not be very important but served as a practice on custom styling. This custom styling came in handy on adjusting the slider for the room info component. Dynamically changing preferred temperature, with unit dependant min and max on the slider are now updated.

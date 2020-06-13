@@ -1,0 +1,57 @@
+* {
+    box-sizing: border-box;
+}
+.room__shadow {
+    box-shadow: 0.5rem 0.5rem 0.5rem rgba(0,0,0,0.4);
+    width: 25vw;
+    padding: 0;
+    margin: 2rem;
+    border-radius: 4px;
+    transition: box-shadow 1s;
+    display: inline-block;
+}
+.room__shadow:hover {
+    box-shadow: 1rem 1rem 1rem rgba(0,0,0,0.5);
+}
+
+.room {
+    text-align: center;
+    width: 100%;
+    border-radius: 3rem;
+}
+
+.room__temp__title,
+.room__temp__value,
+.room__temp__unit {
+    display: block;
+    float: right;
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+}
+
+.room__temp__title {
+    font-weight: bold;
+    float: left;
+}
+
+.room__temp__value {
+    padding-right: 0.5rem;
+}
+
+.room__temp__unit {
+    padding: 0.25rem 0.5rem;
+    font-size: 1.5rem;
+    color: lightblue;
+}
+
+.room__button {
+    margin: 1rem 5rem;
+}
+.temperature__text {
+    display: inline-block;
+    padding: 0.5rem;
+    text-align: center;
+}
+.temperature__text>p {
+    padding-left: 0;
+}
