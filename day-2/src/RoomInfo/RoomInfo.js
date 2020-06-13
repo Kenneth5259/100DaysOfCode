@@ -2,12 +2,24 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
+
+import { withStyles } from '@material-ui/core/styles';
+
 import Slider from '@material-ui/core/Slider';
 
 import './RoomInfo.css';
 
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+
+const StyledSlider = withStyles({
+    root: {
+        display: 'inline-block',
+        width: '70%', 
+        margin: 'auto',
+        padding: '0'
+    }
+})(Slider);
 
 class RoomInfo extends React.Component {
     constructor(props) {
@@ -107,9 +119,19 @@ class RoomInfo extends React.Component {
                         {this.state.preferredTemp}
                     </div> 
                 </Card.Body>
-
-                <Slider aria-label='Temperature' min={this.state.minTemp} max={this.state.maxTemp}  valueLabelDisplay='auto' onChange={this.sliderChangeHandler}/>
-
+                <span> 
+                    <p className='temperature__text'>{this.state.minTemp}</p>
+                    <StyledSlider 
+                        aria-label='Temperature' 
+                        min={this.state.minTemp} 
+                        max={this.state.maxTemp}  
+                        valueLabelDisplay='auto' 
+                        onChange={this.sliderChangeHandler}
+                        getAriaValueText={this.valueText}
+                        valueLabelFormat={this.valueText}
+                    />
+                    <p className='temperature__text'>{this.state.maxTemp}</p>
+                </span>
                 <Button className="room__button" variant={this.state.buttonVariant} onClick={this.buttonClickHandler}>{this.state.buttonName}</Button>
             </Card></div>
         );
