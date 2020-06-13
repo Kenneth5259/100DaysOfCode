@@ -2,6 +2,7 @@ import React from 'react';
 
 import RoomInfo from './RoomInfo/RoomInfo';
 import RoomForm from './RoomForm/RoomForm';
+
 import './App.css';
 
 class App extends React.Component {
@@ -14,7 +15,7 @@ class App extends React.Component {
 
   render() {
     let roomList = this.state.rooms.map((room) => {
-      return <RoomInfo title={room}/>
+      return <RoomInfo title={room} key={Math.random()}/>
     });
     return (
       <div>

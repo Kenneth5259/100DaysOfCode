@@ -1,6 +1,9 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+
+import Slider from '@material-ui/core/Slider';
+
 import './RoomInfo.css';
 
 
@@ -14,10 +17,21 @@ class RoomInfo extends React.Component {
             buttonVariant: 'success',
             currentTemp: 72.0,
             preferredTemp: 68.0,
-            tempUnit: 'F'
+            tempUnit: 'F',
+            marks: [
+                {
+                    value: 0,
+                    label: '50°F'
+                }, 
+                {
+                    value: 100,
+                    label: '95°F'
+                }
+            ]
         }
         this.buttonClickHandler = this.buttonClickHandler.bind(this);
         this.temperatureConversionHandler = this.temperatureConversionHandler.bind(this);
+        this.valueText = this.valueText.bind(this);
     }
     buttonClickHandler = (event) => {
         let newName = this.state.buttonName === 'On' ? 'Off':'On'
@@ -46,6 +60,9 @@ class RoomInfo extends React.Component {
             currentTemp: curTemp.toFixed(1)
         });
     }
+    valueText= (value) => {
+        return `${value}°${this.state.tempUnit}`;
+    }
     render() {
         return (
             <div className="room__shadow">
@@ -73,8 +90,10 @@ class RoomInfo extends React.Component {
                     <div className="room__temp__value">
                         {this.state.preferredTemp}
                     </div> 
-                       
                 </Card.Body>
+
+                <Slider aria-label='Temperature' valueLabelDisplay='auto' value={[0,100]} getAriaLabel={this.valueText}/>
+
                 <Button className="room__button" variant={this.state.buttonVariant} onClick={this.buttonClickHandler}>{this.state.buttonName}</Button>
             </Card></div>
         );
