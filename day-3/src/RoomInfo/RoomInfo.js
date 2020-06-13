@@ -129,6 +129,7 @@ class RoomInfo extends React.Component {
                         onChange={this.sliderChangeHandler}
                         getAriaValueText={this.valueText}
                         valueLabelFormat={this.valueText}
+                        value={this.state.preferredTemp}
                     />
                     <p className='temperature__text'>{this.state.maxTemp}</p>
                 </span>
