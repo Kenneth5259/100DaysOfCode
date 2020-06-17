@@ -32,17 +32,7 @@ class RoomInfo extends React.Component {
             maxTemp: 100.0,
             currentTemp: 72.0,
             preferredTemp: 68.0,
-            tempUnit: 'F',
-            marks: [
-                {
-                    value: 0,
-                    label: '50°F'
-                }, 
-                {
-                    value: 100,
-                    label: '95°F'
-                }
-            ]
+            tempUnit: 'F'
         }
         this.buttonClickHandler = this.buttonClickHandler.bind(this);
         this.temperatureConversionHandler = this.temperatureConversionHandler.bind(this);

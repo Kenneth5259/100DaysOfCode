@@ -1,0 +1,2 @@
+Day 6:  Started developing a monitor model for reusability and better back end practices. Took a break to work on design ideas for scanning the local network and filtering OUI prefixes to match the ones in use for Pi Zero W based devices. The main idea is to scan wifi, find all available devices on a
+predetermined port, connect them for full home monitoring connected to a mobile friendly web interface for viewing and setting room temperatures.

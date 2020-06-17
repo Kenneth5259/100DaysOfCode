@@ -7,5 +7,12 @@ Day 0:  Created the git repository and README for all of the code.
 
 Day 1:  Created working branch for day-1 and decitded on 
         using ReactStrap to quickly create responsive 
-        components. More info will be added by end of 
-        day tomorrow
+        components. The component I am working on will be
+        used for the room information in an IoT project that
+        will most likely be my focus for the next few months
+
+Day 2:  Created then scrapped a react component for forms,
+        implemented a slider that dynamically updates the 
+        preferred temperature in the existing tile. Slider
+        min, max and label is updated dynamically based
+        off of the C/F toggle functionality
