@@ -16,3 +16,13 @@ Day 2:  Created then scrapped a react component for forms,
         preferred temperature in the existing tile. Slider
         min, max and label is updated dynamically based
         off of the C/F toggle functionality
+
+Day 3:  Implemented Socket.IO for real time telemetry and data analytics for my IOT project. Basic
+        event monitoring and connectivity is present and will be expanded upon later in the 100 Days. The goal is to have a startup script determine if an IOT server exists on the local network, if so it will enter client mode, else become the server.
+
+Day 4:  LeetCode Algorithm challenges in NodeJS backed JavaScript. Usually done in C++ using HackerRank
+        so this was a nice change.
+
+Day 5:  Block Diagramming for Raspberry Pi Zero W devices startup logic.
+
+Day 6:  Monitor Model basic creation. Design of OUI filtering for startup logic.
